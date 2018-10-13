@@ -1,6 +1,9 @@
 language: c
 # Select Trusty Tahr.
 sudo: required
+os:
+    - linux
+    - osx
 dist: trusty
 # Travis' git submodule support is ... broken? half-broken? Maybe intentional?
 git:
