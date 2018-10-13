@@ -12,7 +12,8 @@ git:
 before_install:
   - git submodule update --init --recursive
   - if test "$TRAVIS_OS_NAME" = "linux" ; then sudo apt-get update -qq ; sudo apt-get install -qq libssl-dev libgcrypt20-dev libpurple-dev libwebp-dev ; fi
-  - if test "$TRAVIS_OS_NAME" = "osx" ; then brew bundle ; brew link gettext --force ; export PATH="$PATH:/usr/local/bin" ; export DYLD_LIBRARY_PATH="/usr/local/opt/curl/lib:/usr/local/opt/openssl/lib:${DYLD_LIBRARY_PATH}" ; export PATH="/usr/local/opt/openssl/bin:$PATH" ; export LDFLAGS="$LDFLAGS -L/usr/local/opt/openssl/lib" ; export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/openssl/include" ; fi
+  - if test "$TRAVIS_OS_NAME" = "osx" ; then brew bundle ; brew link gettext --force ; export PATH="$PATH:/usr/local/bin" ; export DYLD_LIBRARY_PATH="/usr/local/opt/curl/lib:/usr/local/opt/openssl/lib:${DYLD_LIBRARY_PATH}" ; export PATH="/usr/local/opt/openssl/bin:$PATH" ; export LDFLAGS="$LDFLAGS -L/usr/local/opt/openssl/lib" ; export CPPFLAGS="$CPPFLAGS -I/usr/local/opt/openssl/include" ; export
+ CPPFLAGS="$CPPFLAGS -I$(brew --prefix openssl)/include" LDFLAGS="$LDFLAGS -L$(brew --prefix openssl)/lib" ;fi
 script:
   - ./configure $CONFIGURE_FLAGS
   - make -j2
