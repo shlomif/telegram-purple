@@ -1,3 +1,4 @@
+brew "gettext"
 brew "gnutls"
 brew "openssl"
 brew "pidgin"
