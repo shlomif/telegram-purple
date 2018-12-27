@@ -1,6 +1,6 @@
 [submodule "adium"]
 	path = adium
-	url = https://github.com/adium/adium.git
+	url = https://github.com/adium/adium
 [submodule "tgl"]
 	path = tgl
     branch = test
