@@ -17,7 +17,7 @@ script:
   - ./configure $CONFIGURE_FLAGS
   - make -j2
   - make check
-  - if test "$TRAVIS_OS_NAME" = "osx" ; then cd adium ; make ; make install ; cd .. ; cd telegram-adium/ ; xcodebuild -list -project  telegram-adium.xcodeproj ; xcodebuild -scheme "telegram-adium" build ; fi
+  - if test "$TRAVIS_OS_NAME" = "osx" ; then set -x; cd adium ; make ; make install ; cd .. ; cd telegram-adium/ ; xcodebuild -list -project  telegram-adium.xcodeproj ; xcodebuild -scheme "telegram-adium" build ; fi
 compiler:
   - clang
   - gcc
